@@ -1,0 +1,6 @@
+test: Role.o main.o
+	g++ Role.o main.o -o test
+Role.o: Role.cpp Role.h
+	g++ -c Role.cpp -o Role.o
+main.o: main.cpp Role.h
+	g++ -c main.cpp -o main.o
