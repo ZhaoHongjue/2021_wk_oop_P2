@@ -6,3 +6,8 @@ Room.o: Room.cpp Room.h
 	g++ -c Room.cpp -o Room.o
 main.o: main.cpp Role.h Room.h
 	g++ -c main.cpp -o main.o
+clean:
+	rm main.o
+	rm Role.o
+	rm Room.o
+	rm test
