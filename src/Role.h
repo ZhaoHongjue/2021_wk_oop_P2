@@ -7,15 +7,12 @@ class Role {
 private:
 	string name;
 public:
-	Role() {}
-	Role(string str):name(str) {}
+	Role();
+	Role(string str);
 	Role(const Role& role);
-	~Role() {}
+	~Role();
 
-	friend ostream& operator<<(ostream& out, const Role& role) {
-		out << role.name;
-		return out;
-	}
+	friend ostream& operator<<(ostream& out, const Role& role);
 };
 
 #endif
