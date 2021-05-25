@@ -2,10 +2,10 @@
 #include <string>
 #include "Role.h"
 #include "Room.h"
+#include <vector>
 using namespace std;
 
 void test();
-void prompt();
 
 int main()
 {
@@ -15,13 +15,10 @@ int main()
 
 void test()
 {
-    Role Hero("Hero");
-    Room test;
-    cout << Hero << endl;
-    cout << test << endl;
+    int a[4] = {10,4,5,7};
+    Room lobby("lobby",a);
+    Role Passersby("Passers-by",lobby.getName());
+    lobby.AddRole(Passersby);
+    cout << lobby << endl;
 }
 
-void prompt()
-{
-    cout << "Enter your command:" << endl;
-}
