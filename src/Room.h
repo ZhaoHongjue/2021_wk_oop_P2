@@ -1,11 +1,9 @@
 #ifndef _ROOM_H_
 #define _ROOM_H_
 
-#include <vector>
 #include "Role.h"
+#include <vector>
 using namespace std;
-
-class Role;
 
 class Room {
 private:

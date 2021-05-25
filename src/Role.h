@@ -1,7 +1,6 @@
 #ifndef _ROLE_H_
 #define _ROLE_H_
 
-# include "Room.h"
 using namespace std;
 
 class Role {		
