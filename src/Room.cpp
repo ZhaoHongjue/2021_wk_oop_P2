@@ -9,9 +9,9 @@ Room::Room()
 {
     name = "none";
     for(int i = 0; i < 4; i++) {
-        dire[i] = 1;
+        dire[i] = -1;
     }
-    cnt = 4;
+    cnt = 0;
     role_vec.clear();
 }
 
@@ -21,7 +21,7 @@ Room::Room(string str, int* a):name(str)
     cnt = 0;
     for(int i = 0; i < 4; i++) {
         dire[i] = a[i];
-        if(dire[i]) cnt++;
+        if(dire[i] != -1) cnt++;
     }
     role_vec.clear();
 }
@@ -45,12 +45,23 @@ void Room::AddRole(Role role)
     role_vec.push_back(role);
 }
 
+void Room::RmRole(Role role)
+{
+	int i = 0;
+	vector<Role>::iterator it;
+	for(it = role_vec.begin(); it <= role_vec.end(); it++) {
+		if(*it == role) break;
+		i++;
+	}
+	role_vec.erase(role_vec.begin()+i);
+}
+
 ostream& operator<<(ostream& out, Room& room) {
 	out << "Welcome to the " << room.name <<". There are ";
     out << room.cnt <<  " exits as: ";
     int cnt_tmp = 0;
     for(int i = 0; i < 4; i++) {
-        if(room.dire[i]) {
+        if(room.dire[i] != -1) {
             cnt_tmp++;
             switch (i) {
                 case 0: out << "east"; break;
@@ -63,9 +74,9 @@ ostream& operator<<(ostream& out, Room& room) {
             else if(cnt_tmp < room.cnt - 1) out << ", ";
         }
     }
-    out << "." << endl; // << "Enter your command: ";
+    out << "."; // << "Enter your command: ";
     if(!room.role_vec.empty()) {
-        out << "In this room, you meet ";
+        out << endl << "In this room, you meet ";
         int size = room.role_vec.size();
         for(int i = 0; i < size; i++) {
             if(i < size - 2) out << room.role_vec[i].getName() << ", ";

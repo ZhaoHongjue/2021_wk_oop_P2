@@ -20,6 +20,16 @@ Role::Role(const Role& role)
 
 Role::~Role() {}
 
+void Role::move(int num)
+{
+	
+}
+
+bool Role::operator==(const Role& role)
+{
+	return name == role.name && place == role.place;
+}
+
 Role& Role::operator=(const Role& role)
 {
 	if(this != &role) {

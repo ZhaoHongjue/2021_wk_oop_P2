@@ -24,6 +24,8 @@ public:
 	string getName() {return name;}
 	//在房间里增加成员
 	void AddRole(Role role);
+	//删除成员
+	void RmRole(Role role);
 
 	friend ostream& operator<<(ostream& out, Room& room);
 };

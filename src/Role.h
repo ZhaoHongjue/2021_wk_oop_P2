@@ -15,7 +15,9 @@ public:
 
 	string getName() {return name;}
 	string whereis() {return place;}
+	void move(int num);
 
+	bool operator==(const Role& role);
 	friend ostream& operator<<(ostream& out, const Role& role);
 	Role& operator=(const Role& role);
 };
