@@ -12,7 +12,12 @@ private:
 public:
 	Castle();
 	~Castle() {}
-	void display();
+
+	Room& getRoom(string place);
+	Room& getRoom(int num);
+	string getRolePlace(int tag);
+
+	void MvRole(Role role, int d);
 };
 
 #endif
