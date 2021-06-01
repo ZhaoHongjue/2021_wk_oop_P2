@@ -106,6 +106,10 @@ void Castle::MvRole(Role role, int d)
 			it->RmRole(role);
 			castle[dire[d]].AddRole(role);
 		}
-		else cout << "You can't go to that direction!" << endl;
+		else {
+			cout << "#######################################################################" << endl;
+			cout << "You can't go to that direction!" << endl;
+			cout << "#######################################################################" << endl;
+		}
 	}
 }

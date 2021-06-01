@@ -1,13 +1,12 @@
-test: Castle.o Role.o Room.o main.o
-	g++ Castle.o Role.o Room.o main.o -o test
-Role.o: Role.cpp Role.h Room.h Castle.h
-	g++ -c Role.cpp -o Role.o
-Room.o: Room.cpp Role.h Room.h Castle.h
-	g++ -c Room.cpp -o Room.o
-main.o: main.cpp Role.h Room.h Castle.h
-	g++ -c main.cpp -o main.o
-clean:
-	rm main.o
-	rm Role.o
-	rm Room.o
-	rm test.exe
+cc = g++
+prom = test
+deps = Role.h Room.h Castle.h
+src = Room.cpp Castle.cpp main.cpp
+obj = Room.o Castle.o main.o
+
+$(prom): $(obj)
+	$(cc) $(obj) -o $(prom)
+
+%.o: %.cpp $(deps)
+	$(cc) -c $< -o $@
+
